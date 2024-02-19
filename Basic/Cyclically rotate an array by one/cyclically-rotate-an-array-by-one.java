@@ -42,16 +42,13 @@ class GFG {
 
 class Compute {
     
-    public void rotate(int a[], int n)
+    public void rotate(int arr[], int n)
     {
-        int k = a[0];
-     a[0] = a[n-1];
-        for(int i=1;i<n;i++)
-        {
-            int h=a[i];
-            a[i] = k;
-            k = h;
-        }
+        int j = arr[n-1];
+        int k=0;
+        for(int i=n-1;i>0;i--)
+        arr[i] = arr[i-1];
+        arr[0] = j;
         
     }
 }

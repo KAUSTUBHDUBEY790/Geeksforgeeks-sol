@@ -32,17 +32,27 @@ class Solution{
     static int maxIndexDiff(int a[], int n) { 
         
         // Your code here
-        int i=0,j=n-1,res=0;
-        while(i<=j)
+        int r[] = new int[n];
+        r[n-1] = a[n-1];
+        int l[] = new int[n];
+        l[0] = a[0];
+        for(int i=1;i<n;i++)
+        l[i] = Math.min(a[i],l[i-1]); 
+        for(int i=n-2;i>=0;i--)
+        r[i] = Math.max(a[i],r[i+1]); 
+        
+        int res=-1,i=0,j=0;
+        while(i<n && j<n)
         {
-            if(a[i]<=a[j])
-            {res = Math.max(res,j-i);
-                i++;
-                j = n-1;
-            }
+            if(l[i]>r[j])
+            i++;
             else
-            j--;
+            {
+                res = Math.max(res,j-i);
+                j++;
+            }
         }
+
         return res;
         
     }

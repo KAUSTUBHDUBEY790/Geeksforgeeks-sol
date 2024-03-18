@@ -127,23 +127,24 @@ class Node
 class Solution
 {
     //Function to return the level order traversal of a tree.
-    static ArrayList <Integer> levelOrder(Node node) 
+    static ArrayList <Integer> levelOrder(Node root) 
     {
         // Your code here
-        ArrayList<Integer> a =  new ArrayList<>();
-        Queue<Node> q = new  LinkedList<Node>();
-        q.add(node);
+        ArrayList<Integer> a = new ArrayList<>();
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
         while(!q.isEmpty())
         {
-            Node k = q.remove();
-            a.add(k.data);
-            if(k.left!=null)
-            q.add(k.left);
-            if(k.right!=null)
-            q.add(k.right);
-            
+            Node b = q.poll();
+            a.add(b.data);
+            if(b.left!=null)
+            q.add(b.left);
+            if(b.right!=null)
+            q.add(b.right);
         }
         return a;
+        
+        
     }
 }
 

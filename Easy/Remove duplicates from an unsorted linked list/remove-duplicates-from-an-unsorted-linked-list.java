@@ -94,25 +94,24 @@ class Node
 class Solution
 {
     //Function to remove duplicates from unsorted linked list.
-    public Node removeDuplicates(Node he) 
+    public Node removeDuplicates(Node head) 
     {
          // Your code here
          HashSet<Integer> a = new HashSet<>();
-         Node h=null;
-         Node head = he;
-         while(head!=null)
-         {
-             if(a.contains(head.data))
-             {
-                 h.next = head.next;
-             }
-             else{
-                 a.add(head.data);
-                 h = head;
-             }
-             head = head.next;
-         }
-         return he;
+         Node k =head;
+         Node p= null;
          
+         while(k!=null)
+         {
+             if(a.contains(k.data))
+             p.next = k.next;
+             else
+             {a.add(k.data);
+                p = k;
+             }
+             k  = k.next;
+             
+         }
+         return head;
     }
 }
